@@ -1,10 +1,12 @@
 
-import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseUUIDPipe, Patch, Post, UseInterceptors } from '@nestjs/common';
 import { Item } from './item.model';
 import { ItemsService } from './items.service';
 import { CreateItemDto } from './dto/create-item.dto';
+import { RequestInterceptor } from '../interceptor/request.interceptor';
 
 @Controller('items')
+@UseInterceptors(RequestInterceptor)
 export class ItemsController {
   constructor (private readonly itemsService: ItemsService) {}
 
