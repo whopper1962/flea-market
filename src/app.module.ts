@@ -5,13 +5,18 @@ import { TeamsModule } from './teams/teams.module';
 import { LoggerMiddleware } from './middleware/logger.middleware'
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
+
+// import ormconfig from '../ormconfig';
+
 @Module({
   imports: [
     ItemsModule,
     PlayersModule,
     TeamsModule,
     UsersModule,
-    // TypeOrmModule.forRoot(),
+    TypeOrmModule.forRoot(
+      // ...ormconfig
+    ),
   ],
   controllers: [],
   providers: [],
